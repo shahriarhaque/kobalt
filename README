@@ -1,0 +1,18 @@
+Kobalt is a 2d game engine written in Java. It currently
+has the following features:
+	
+	- Loading and managing 2d sprites
+	- Collission detection using arbitrary shapes
+	- A particle effects engine
+	- A library of raster graphics effects
+	- Loading and playing WAV and MIDI files in the background
+
+==================
+Build Instructions
+==================
+Kobalt was built using Eclipse. To be able to build this project
+and run the demos, simply import this directory as a project in
+Eclipse. The demos are in a package called tester.
+
+Note: The Makefile is still incomplete. Use it to clean up
+.class files before committing the code.

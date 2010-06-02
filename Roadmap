@@ -1,0 +1,34 @@
+Roadmap Version 2.0
+Last Revised 22/03/2010
+Author: Shahriar Haque <shahriar.haque@gmail.com>
+
+	- Refactor to support chaining together animations
+	- Rewrite experimental networking package with UDP based P2P
+	- Dedicated Generic Game Server (Client-Server Model?)
+	- Complete Physics Engine integration
+	- Migrate code to JOGL
+
+
+===============================================================================
+
+Roadmap Version 1.0
+Last Revised: 6/12/2008
+Author: Shahriar Haque <shahriar.haque@gmail.com>
+
+	- Have support for multiple screens (completed)
+	- New derived class of AdvancedGameEntity to support vector graphics transformation. (completed)
+	- Advanced collision detection method/class with vector based outlines. (completed)
+	- Support for playing MP3 files in a threaded environment. (completed)
+	- Add support for playing Midis, preloading sound clips, and playing them on new threads. (completed)
+	- Base class for vector graphics consisting of Shapes, Areas or Polygons. (completed)
+	
+	- Update queue and render queue with Z-order sorting
+	- EntityGroup class for managing update, render and collision detection.
+	- SVG support for sprites.
+
+	
+Special Effects:
+	- Refraction Effects (Warp, Magnify)
+	- Saturation Effects (Saturate, Desaturate)
+	- Reflection Effects (Faded Reflection, Water Reflection)
+	

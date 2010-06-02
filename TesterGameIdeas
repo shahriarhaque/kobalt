@@ -1,0 +1,7 @@
+Simple Game Ideas
+
+Chicken Cross The Road
+	Chicken pops up in random location. His goal is to reach another randomly
+	selected destination. Chicken can only move at 90 degrees. Cars bounce
+	horizontally or vertically on the walls. Each level increases the number
+	of cars.

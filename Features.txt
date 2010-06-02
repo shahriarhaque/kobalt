@@ -1,0 +1,8 @@
+P2P Web Service (beta)
+Real time Particle System
+Lighting Effects (beta)
+Special Effect Library
+Precision Vector-based Collisions
+Threaded MP3, Wav, Midi playback support
+Spritesheet loading and extraction
+High quality anti-aliased image operations

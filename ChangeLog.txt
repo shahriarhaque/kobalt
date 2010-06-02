@@ -1,0 +1,126 @@
+22/03/2010	Shahriar Haque	<shahriar.haque@gmail.com>
+
+*	Refactor
+		1) Moved the lighting, network and physics packages to the
+		experimental package.
+		
+		2) Moved all tester-related graphics to the tester/resources.
+
+18/12/2008	Shahriar Haque	<shahriar.haque@gmail.com>
+
+*	AbstractGame.java
+		1) In the main game loop, the time interval between each iteration is
+		calculated. This value is available staticly to all classes through
+		a variable called interval.
+
+*	GameEntity.java / AdvancedGameEntity.java
+		1) x and y coordinates have been changed to be of double type. All
+		drawing and bounding operations now cast x and y before using them.
+		
+		2) x_velocity and y_velocity will, from now on, indicate velocities
+		in pixels per second. The update method has been changed to reflect
+		this change of semantics. Instead of directly incrementing x and y
+		with x_velocity and y_velocity, the increments are linearly
+		interpolated using the value of interval from the AbstractGame class.
+		
+		3) A field called UPDATE_INTERVAL has been added to the class. This
+		variable indicates how often to advance to the next frame. The update
+		method has been updated to calculate the time elapsed since the last
+		update. If this time is greater than or equal to the UPDATE_INTERVAL,
+		the frame is advanced to the next one.
+		
+*	Utilities.java
+		1) Added flipVertical and flipHorizontal methods. Each method has two
+		versions. One operates on a single BufferedImage, the other on an array
+		of BufferedImages.
+
+*	FadeEffect.java (new)
+		1) This class can render fade in or fade out animations on a given
+		BufferedImage or a GameEntity for a given duration. Once started
+		the effects will continue till the set duration. After that a done
+		flag becomes true. This is how a calling class knows when the
+		animation has ended. An instance of this class can be reset to
+		prepare for another run of animation.
+		
+*	BlurEffect.java (new)
+		1) This class contains a static applyEffect method that renders a
+		blurred version of the given BufferedImage or the current frame of
+		the given GameEntity. The class, by default, uses a built-in 3x3
+		kernel for the operation. However, this kernel and its dimensions
+		can be changed. However, this class can currently only accept square
+		matrices as kernels.
+
+06/12/2008	Shahriar Haque	<shahriar.haque@gmail.com>
+
+*	GameScreen.java
+		1) This abstract class now holds abstract definitions of update and 
+		render. This class also manages its own list objects that require
+		keyboard and mouse support. The function of this class is to model
+		in game screens (e.g. Game menu, pause menu, inventory etc). The
+		AbstractGame class manages the sequencing and invoking of the methods
+		of this class.
+
+*	AbstractGame.java
+		1) addKeyboardSupport(), addMouseSupport(), keyboard listener methods,
+		mouse listener methods, update and render have been moved to the
+		GameScreen class. An ArrayList of GameScreen objects has been added.
+		This maintains a collections of all the screens related to the game.
+		A static integer index has been added to indicate the the index of
+		the currentScreen within the ArrayList. AbstractGame itself now extends
+		GameScreen. This allows old games to run without any changes. The main
+		game loop has been modified to call the update and render methods of
+		the current screen. The AWT keyboard and mouse event listeners have
+		also been changed to forward the events to the current game screen.
+
+*	Sprite.java
+		1) getNextFrame now correctly returns the next frame indicated by the
+		currently active sequence.
+		
+*	GameEntity.java
+		1) Added constants for keycodes of left, right, up and down buttons.
+
+*	Spritesheet.java
+		1) New class to represent Spritesheets. Contains convenience 
+		methods to easily load full or partial tileset. extractAll method loads 
+		a tileset along with a text file that contains labels for each 
+		individual image of the tileset. extractRow returns a BufferedImage 
+		array of all the images of a single row.
+
+*	Utilities.java
+		1) Added removeMask method which takes in an image and removes the mask
+		color.
+
+
+19/06/2008 Shahriar Haque <shahriar.haque@gmail.com>
+
+*	AbstractGame.java
+		1) Set the ignoreRepaint property of the GameWindow inner class to true to improve rendering performance.
+		2) Added white and black Color constants as they are frequently used.
+
+
+13/06/2008 Shahriar Haque <shahriar.haque@gmail.com>
+
+*	GameEntity.java
+		1) Changed access modifier of x,y,width height to public.
+		2) Sprite object is now public and final.
+		3) Removed getters for getX(),getY(),getWidth(),getHeight() and 
+		getSprite().
+		4) Removed setLocation(x,y) and setDimensionMethod(w,h) methods.
+		5) Changed accessor of Rectangle bound to final, fixed constructor to
+		initialize bound.
+		
+*	AdvancedGameEntity.java
+		1) Replaced accessor method called for getX(), getY(), getWidth(), 
+		getSprite() to their respective public instance variables.
+		2) Added sine-table from NS-47 Project
+		3) Added heading fixes from NS-47 Project
+		4) Changed dx = (int) (x + x_velocity) to x = (int) (x + x_velocity);
+		5) Removed occurences of setLocation methods in the class.
+		6) Commented out declarations of dx and dy because they do not seemed 
+		to be used anywhere.
+
+*	Sprite.java
+		1) Changed accessor for BufferedImage[] frames to final.
+		
+*	AbstractGame.java
+		1) Changed all the access modifiers to final
